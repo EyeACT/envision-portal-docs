@@ -16,7 +16,7 @@ Envision Portal Docs is a documentation site for the Envision Portal platform.
   ---
   color: neutral
   size: xl
-  to: /getting-started/installation
+  to: docs/getting-started/installation
   trailing-icon: i-lucide-arrow-right
   ---
   Get started
