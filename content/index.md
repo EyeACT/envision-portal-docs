@@ -1,19 +1,15 @@
 ---
 seo:
-  title: Write beautiful docs with Markdown
-  description: Ship fast, flexible, and SEO-optimized documentation with beautiful
-    design out of the box. Docus brings together the best of the Nuxt ecosystem.
-    Powered by Nuxt UI.
+  title: Envision Portal Docs
+  description: Envision Portal Docs is a documentation site for the Envision Portal platform.
 ---
 
 ::u-page-hero
 #title
-Write beautiful docs with Markdown
+Envision Portal Docs
 
 #description
-Ship fast, flexible, and SEO-optimized documentation with beautiful design out of the box.
-
-Docus brings the best of the Nuxt ecosystem into one CLI.
+Envision Portal Docs is a documentation site for the Envision Portal platform.
 
 #links
   :::u-button

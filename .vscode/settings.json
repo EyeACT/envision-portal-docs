@@ -1,0 +1,21 @@
+{
+  // Enable formatting specifically for the MDC extension
+  "mdc.enableFormatting": true,
+
+  // Recommended settings for .mdc and .md files
+  "[mdc]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "Nuxt.mdc" // Set the MDC extension as default formatter for MDC files
+  },
+  "[markdown]": {
+    // Optionally set the MDC extension as default formatter for all .md files
+    // If you use MDC syntax in all your .md files
+    "editor.defaultFormatter": "Nuxt.mdc"
+  },
+
+  // Workaround: Disable Prettier for Markdown files if it conflicts
+  "prettier.disableLanguages": ["markdown"]
+}
