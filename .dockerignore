@@ -1,0 +1,29 @@
+# Git — avoid copying so Docus doesn't parse origin URL during build (causes "URL parsing failed" in Docker)
+.git
+.gitignore
+
+# Dependencies and build artifacts (reinstalled/built in container)
+node_modules
+.nuxt
+.output
+dist
+*.local
+
+# Dev and IDE
+.env
+.env.*
+!.env.example
+.cursor
+.vscode
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs / misc
+README.md
+.editorconfig

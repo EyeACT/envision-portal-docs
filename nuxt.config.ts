@@ -4,6 +4,13 @@ export default defineNuxtConfig({
   site: {
     name: "Envision Portal Docs",
   },
+  // GitHub repo for "Edit on GitHub" etc. Required when building without .git (e.g. Docker) so Docus doesn't try to parse the local git remote.
+  appConfig: {
+    github: {
+      url: "https://github.com/EyeACT/envision-portal-docs",
+      branch: "main",
+    },
+  },
   mdc: {
     highlight: {
       shikiEngine: "javascript",
