@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   // GitHub repo for "Edit on GitHub" etc. Required when building without .git (e.g. Docker) so Docus doesn't try to parse the local git remote.
   app: {
     baseURL: "/docs/",
+    buildAssetsDir: "/docs/_nuxt/",
   },
   appConfig: {
     github: {
