@@ -5,15 +5,16 @@ RUN apk add --no-cache openssl
 
 WORKDIR /app
 
-# Copy only necessary files for dependency installation
-COPY package.json yarn.lock ./
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
-RUN yarn install --frozen-lockfile \
-  && yarn cache clean
+# Copy only necessary files for dependency installation
+COPY package.json pnpm-lock.yaml ./
+
+RUN pnpm install --frozen-lockfile
 
 # Copy source files and build
 COPY . .
-RUN yarn run build
+RUN pnpm run build
 
 # Production stage
 FROM node:22-alpine
