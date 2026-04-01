@@ -1,119 +1,96 @@
 ---
 seo:
   title: Envision Portal Docs
-  description: Envision Portal Docs is a documentation site for the Envision Portal platform.
+  description: Documentation for the Envision Portal platform, a research dataset management system for biomedical and eye imaging data.
 ---
 
 ::u-page-hero
 #title
-Envision Portal Docs
+Envision Portal Documentation
 
 #description
-Envision Portal Docs is a documentation site for the Envision Portal platform.
+Manage, publish, and discover biomedical research datasets with FAIR principles, controlled access workflows, and clinical trial metadata support.
 
 #links
   :::u-button
   ---
   color: neutral
   size: xl
-  to: /getting-started/installation
+  to: /getting-started/introduction
   trailing-icon: i-lucide-arrow-right
   ---
   Get started
-  :::
-
-  :::u-button
-  ---
-  color: neutral
-  icon: simple-icons-github
-  size: xl
-  to: https://github.com/nuxt-content/docus
-  variant: outline
-  ---
-  Star on GitHub
   :::
 ::
 
 ::u-page-section
 #title
-Shipped with many features
+Platform Capabilities
 
 #features
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://nuxt.com
+  icon: i-lucide-database
   ---
   #title
-  Built with [Nuxt 4]{.text-primary}
-  
+  Dataset Management
+
   #description
-  Optimized by the most famous Vue framework. Docus gives you everything you need to build fast, performant, and SEO-friendly websites.
+  Create and manage versioned research datasets with comprehensive metadata, file storage, and a structured publishing workflow.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://ui.nuxt.com/
+  icon: i-lucide-file-text
   ---
   #title
-  Powered by [Nuxt UI]{.text-primary}
-  
+  Rich Metadata
+
   #description
-  Beautiful out of the box, minimal by design but highly customizable. Docus leverages Nuxt UI to give you the best docs writing experience with zero boilerplate, just focus on your content.
+  Capture general dataset metadata, clinical trial study information, and data quality documentation through the Healthsheet framework.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://content.nuxt.com
+  icon: i-lucide-lock
   ---
   #title
-  Enhanced Markdown syntax by [Nuxt Content]{.text-primary}
-  
+  Access Control
+
   #description
-  The only thing you need to take care about is writing your content. Write your pages in Markdown and extend with MDC syntax to embed Nuxt UI or custom Vue components. Structure, routing, and rendering are handled for you.
+  Role-based team permissions and a full controlled access request workflow with data use agreements and expiration management.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://nuxt.com/docs/guide/directory-structure/app-config
+  icon: i-lucide-search
   ---
   #title
-  Customize with [Nuxt App Config]{.text-primary}
-  
+  Dataset Discovery
+
   #description
-  Update colors, social links, header logos and component styles globally using the `app.config.ts`, no direct code modifications required.
+  Browse and search publicly available datasets. Request access to open or controlled datasets directly from the platform.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://content.nuxt.com/studio
+  icon: i-lucide-upload-cloud
   ---
   #title
-  Edit in production with [Nuxt Studio]{.text-primary}
-  
+  Cloud File Storage
+
   #description
-  Edit your content in production with zero Markdown knowledge required. Let your non technical colleagues collaborate on the documentation and integrate Vue components without code skills.
+  Upload dataset files to Azure Data Lake Storage with separate environments for drafts and published datasets.
   :::
 
   :::u-page-feature
   ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://ui.nuxt.com/components/content-search
+  icon: i-lucide-code-2
   ---
   #title
-  Built-in navigation and [full-text search]{.text-primary}
-  
+  REST API
+
   #description
-  Only focus on ordering your content, Docus handles the search modal and auto-generates the side navigation for you.
+  Full REST API with OpenAPI documentation. Integrate dataset management workflows into your own tools and pipelines.
   :::
 ::
