@@ -1,0 +1,280 @@
+﻿Executive Summary
+Eye imaging datasets are essential to advancing research in eye health and beyond. From glaucoma, diabetic retinopathy, and age-related macular degeneration (AMD) to brain-related disorders such as Alzheimer’s disease and dementia, eye imaging datasets play a growing role in both clinical care and scientific research. They have particularly been critical for the development of novel AI-based diagnostic approaches. Yet, the research community faces challenges in finding and reusing eye imaging datasets that are standardized, well-documented, and ready for Artificial Intelligence (AI) development. To address this challenge, we are developing the Envision Portal, a cloud-based, open-source platform to easily share and discover FAIR (Findable, Accessible, Interoperable, and Reusable) and AI-ready eye imaging datasets derived for clinical research. Inspired by the success achieved by platforms like OpenNeuro with neuroimaging datasets, the focus will be on making it easier for data generators to share their data and for data consumers to find and access data. The Envision Portal will provide:
+* Tools for automatically preparing and sharing FAIR and AI-ready datasets.
+* Support for sharing routine  eye imaging modalities, such as optical coherence tomography (OCT), OCT angiography (OCTA), and fundus photography, and research imaging modalities such as fluorescence lifetime imaging ophthalmoscopy (FLIO), along with their related clinical data
+* Tools to easily discover and access eye imaging datasets
+* Support for multiple data access methods (e.g., open access, controlled access) to cater to the needs of different studies
+* Support for multiple data discovery and reuse methods, including APIs for seamless integration with AI workflows and analytical pipelines
+Major Resources
+* Link to the Envision Portal: http://envisionportal.org 
+* Website of the Eye ACT project (parent project for the Envision Portal): https://eyeactstudy.org 
+* GitHub organization for the project: https://github.com/EyeACT
+* Contact: bpatel@calmi2.org
+________________
+Motivation
+Eye imaging modalities such as OCT, OCTA, fundus photography, and FLIO provide detailed views of ocular structures and play an essential role in ophthalmic research and innovations. They have particularly been critical for the development of novel AI-based diagnostic approaches for eye-related diseases, and beyond.1,2 Notably, RETFound, a self-supervised foundation model trained on 1.6 million unlabeled retinal images (mainly color fundus photography and OCT), demonstrated state-of-the-art performance in both ophthalmic and systemic disease detection tasks while requiring significantly fewer labeled examples than traditional models.3 OphGLM, a multimodal language-and-vision model, combined fundus photography with natural language capabilities to provide accurate diagnostic support and holds strong potential for integration into real-world clinical workflows.4 Similarly, Ophtha-LLaMA2 is a domain-specific large language model (LLM) fine-tuned on multimodal ophthalmic data, including OCT and fundus photography, showing high alignment with clinician-generated diagnoses and offering efficient, low-resource deployment for diagnostic assistance.5 Another recent study underscores the value of longitudinal AI models that use retinal imaging to support early detection, risk stratification, and personalized care in systemic disease management.6 
+
+
+No single study can usually collect the amount of data required to make such advancements. Therefore, they are only possible if different studies share their eye imaging data for secondary reuse. However, our experience in the field is that data sharing is not yet a common practice in ophthalmic research. Even when shared, eye imaging datasets are not easily findable. We experienced this firsthand, for instance, while searching for open-access OCT data related to AMD.7 Due to fragmented practices and the lack of rich metadata, finding datasets turned out to be very difficult and time-consuming (Fig. 1). Extensive, multi-platform searches were necessary using diverse query strategies to identify relevant datasets; however, after comprehensive screening, only a small number met eligibility criteria. Eventually, finding related manuscripts first through PubMed and then going through the time-consuming process of reading was the most successful path to finding relevant datasets. 
+  
+
+Figure 1. Illustration of the time-consuming approach followed to find open-access AMD-related OCT datasets by Gim et al.7
+Finding eye imaging datasets directly is difficult because they are fragmented, shared across generalist repositories that do not support eye-imaging-specific metadata necessary for conveniently finding them (Table 1). Moreover, these repositories do not enforce the strict data formatting necessary for interoperability and reusability. Therefore, even when datasets are found, they are often difficult to reuse.7
+
+
+
+
+Table 1. Some repositories where eye imaging datasets are currently shared.
+
+
+Repository
+	Imaging modality
+	Example dataset
+	Mendeley Data
+	Fundus photography
+	https://doi.org/10.17632/5428684j44.2
+	Mendeley Data
+	OCT
+	https://doi.org/10.17632/rscbjbr9sj.3
+	Mendeley Data
+	OCTA
+	https://doi.org/10.17632/p5h7x55zw7.1
+	Mendeley Data
+	OCT
+	https://doi.org/10.17632/sncdhf53xc.1
+	Zenodo
+	Fundus photography
+	https://doi.org/10.5281/zenodo.4891308
+	Zenodo
+	OCTA
+	https://doi.org/10.5281/zenodo.10400092
+	Figshare
+	Fundus photography
+	https://doi.org/10.6084/m9.figshare.21299148
+	Figshare
+	OCT
+	https://doi.org/10.6084/m9.figshare.30747137
+	Figshare
+	OCTA
+	https://doi.org/10.6084/m9.figshare.24893358
+	Figshare
+	FLIO
+	https://doi.org/10.6084/m9.figshare.10327172
+	openICPSR
+	OCT
+	https://doi.org/10.3886/E108503V1
+	Kaggle
+	Fundus photography
+	https://www.kaggle.com/datasets/kssanjaynithish03/retinal-fundus-images
+	Kaggle
+	OCT
+	https://www.kaggle.com/datasets/paultimothymooney/kermany2018
+	Kaggle
+	OCT and OCTA
+	https://www.kaggle.com/datasets/cnzakimuena/retinal-oct-and-octa-data-3
+	
+
+
+
+These issues primarily stem from researchers’ limited knowledge about data standards, FAIR data practices, and responsible data sharing approaches. Through the influence of global efforts like the FAIR principles, some fields have managed to overcome these challenges. For example, the neuroimaging community addressed its data sharing and reuse challenges through three coordinated initiatives. First, they established a specification for consistently structuring and formatting neuroimaging data and related metadata, called the Brain Imaging Data Structure (BIDS).8 Then, they developed tools to easily prepare BIDS-compliant datasets, thereby reducing the burden on researchers and promoting the adoption of BIDS.9 Finally, they established OpenNeuro, a dedicated repository where BIDS-formatted datasets can be easily shared, found, and reused.10,11 Together, these initiatives have led to consistent sharing and common reuse of neuroimaging datasets. 
+
+
+To our knowledge, few such initiatives exist in ophthalmic research. Of the approximately 150 domain-specific repositories recommended by NIH, only the NEI Data Commons has any focus on eye-related data (Fig. 2).12 However, it acts more as a registry to find NEI-supported data and resources rather than being a data repository. Even though some datasets are hosted, FAIR principles are not consistently adopted (no DOI, lack of metadata, etc.).13 The field still lacks a coordinated ecosystem of data standards, preparation tools, and sharing infrastructure. Inspired by the success of the neuroimaging community, we are developing the Envision Portal to address the data sharing and reuse challenges of the ophthalmic research community.
+
+
+  
+
+
+
+Figure 2. Data type-focus of the 150+ NIH-recommended domain-specific repositories for sharing data. NIH-provided descriptions of supported repositories were iterated in Python using Llama 3.2 1B Instruct LLM to return a delimited list of modalities and substantive focuses. Synonymous modalities and focuses were collapsed into count information using SentenceTransformer embeddings vectorized by thenlper/gte-large LLM, and representative modalities were selected by lowest cosine distance.
+Vision and Objectives
+The Envision Portal is being developed as part of the Eye ACT project funded by the National Institute on Aging (NIA) at the National Institutes of Health (NIH).14 Our vision is to create a platform that empowers the ophthalmic research community to share, discover, and reuse eye imaging data in ways that accelerate scientific progress, advance clinical innovation, and support the development of robust AI models. It will support the collection, curation, and dissemination of diverse ophthalmic imaging datasets in standardized formats, with rich metadata that enable meaningful secondary use. The platform will be particularly designed to ensure that datasets are FAIR and AI-ready, such that they meet the documentation, quality, and interoperability needs of researchers developing and evaluating AI models (Fig. 3).15,16 The platform will be open source, developed from a public repository on GitHub. It will be free to use for sharing, finding, and accessing datasets during the period of the NIH grant supporting the project (up to 2029) and we will explore different avenues during that period to keep the platform free to use beyond that (see “Sustainability and Funding Model” section). The objectives are: 
+* To build a platform that supports and facilitates the sharing of FAIR and AI-ready eye imaging data (OCT, OCTA, fundus photography, FLIO) along with related clinical data (demographics, diagnosis, etc.)
+* To provide convenient access to the shared datasets 
+* To act as a registry for all eye imaging datasets, even those not shared on the Envision Portal, and facilitate data discovery
+* To facilitate dataset citation, usage tracking, and contributor recognition
+* To support data access frameworks that ensure privacy and compliance
+  
+Figure 3. Illustration of the vision for the Envision Portal.
+Key Features
+The Envision Portal will be designed to advance two goals: making it easier for researchers to share FAIR and AI-ready data and enabling others to find, access, and reuse that data.
+
+
+For data contributors (researchers, clinicians, institutions, consortia, etc.), the platform will provide an intuitive and guided data sharing workflow that helps ensure their datasets are FAIR and AI-ready (Fig. 4). This workflow will be inspired by similar ones we have built in prior tools, such as SODA for the NIH SPARC initiative and FAIRhub for the NIH Bridge2AI program.17,18 Built-in automation tools will assist with organizing data in a reusable structure, converting files to standard format (including from proprietary manufacturer format), de-identifying data, generating rich metadata using standard formats and vocabularies, and creating documentation like Healthsheet to enable responsible data reuse (see “Data Standards” section). When they are ready to share their datasets, contributors will be able to choose from multiple data access options (such as fully open, restricted, controlled) to select the approach that best suits the participant consent in their study, privacy considerations, and sensitivity of their data. Each shared dataset will be assigned a Digital Object Identifier (DOI), have a dedicated landing page, and the platform will track metrics such as citations, mentions, and downloads to reward contributors and enable them to demonstrate the impact of their shared dataset.
+
+
+  
+
+Figure 4. Step-by-step process to simplify FAIR and AI-ready data sharing for data contributors.
+
+
+
+
+For data consumers, the Envision Portal will offer tools to support data discovery, access, and reuse (Fig. 5). They will be able to find datasets by filtering based on imaging modalities, disease focus, devices used, access type, and more. The platform will also provide a novel Large Language Model (LLM)-powered search feature, allowing users to ask questions in natural language and receive a summary response for their query, along with suggestions of relevant datasets. Each dataset will have a landing page that provides general information about the dataset so data consumers can rapidly decide if a dataset is suitable for them or not. Data access will be simplified and handled through intuitive interfaces, including for datasets that are not openly accessible. All datasets will include standardized and rich metadata that support integration with machine learning pipelines, analytical tools, and reproducible workflows. We will build automated crawling tools that will search for eye imaging data on other repositories and register them in the platform’s database to extend the search capabilities beyond just datasets shared through the Envision Portal. API based access will also be available to facilitate programmatic reuse. We will explore opportunities to integrate the Envision Portal with platforms like the Alzheimer’s Disease Data Initiative (ADDI) to provide cloud computing resources and federated learning capabilities to also enable the reuse of data without requiring download. 
+
+
+  
+
+
+
+Figure 5. Features to facilitate data discovery and reuse for data users.
+
+
+
+
+Development Principles
+The Envision Portal is being developed in alignment with widely recognized best practices for trusted digital repositories and sustainable research infrastructure.
+In particular, the Envision Portal will align with the TRUST (Transparency, Responsibility, User focus, Sustainability, and Technology) Principles for digital repositories.19 These principles have become widely adopted across the research data ecosystem as a framework for evaluating and guiding trustworthy repository practices. They are increasingly referenced by funders, publishers, and infrastructure providers as a benchmark for responsible data stewardship. Aligning with these principles will help ensure that we clearly communicate the services and policies of the Envision Portal, take responsibility for data integrity and access, center development around the needs of the communities, plan for long-term sustainability, and employ reliable, secure technologies. Our approach to complying with each TRUST principle is described in detail in Table 2. We will aim to pursue the CoreTrustSeal certification as the platform matures. CoreTrustSeal is an internationally recognized certification for trustworthy digital repositories and builds upon the TRUST framework through a set of 16 concrete requirements covering organizational infrastructure, digital object management, and technical security.20,21 Obtaining the CoreTrustSeal would provide external validation of the trustworthiness of the Envision Portal and signal to data contributors, data users, and funders that the platform meets established expectations for a trusted repository. 
+In addition, the Envision Portal will be developed such that its source code is reusable and easy to contribute to. To achieve that, we will follow the FAIR Principles for Research Software (FAIR4RS Principles) through the FAIR Biomedical Research Software (FAIR-BioRs) Guidelines.22,23 Specifically, all source code will be maintained in open repositories in the GitHub organization of the Eye ACT project.24 For each new major version of the platform, the source code will be archived on Zenodo to obtain a version-specific DOI. A thorough developer documentation will be established to facilitate the reuse of the code. All code for the platform will be released under the open-source and permissive MIT license.
+Table 2. How we anticipate aligning the Envision Portal with the TRUST Principles[a][b].
+TRUST Principles
+	Guidance for Repositories
+	Envision Portal Alignment
+	Transparency
+	Be transparent about specific repository services and data holdings that are verifiable by publicly accessible evidence.
+	   * Public documentation describing repository scope, services, and governance
+   * Open-source codebase hosted in a public GitHub repository (MIT license)
+   * Public dataset landing pages with clear metadata, provenance, and access conditions
+   * Clearly documented data standards, submission workflows, and access policies
+	Responsibility
+	Ensure the authenticity and integrity of data holdings and the reliability and persistence of services.
+	   * Validation workflows for data structure, metadata completeness, and de-identification
+   * Persistent identifiers (DOIs) for datasets to support citation and long-term reference
+   * Secure hosting and monitored infrastructure to ensure service reliability
+	User Focus
+	Ensure that data management norms and expectations of target user communities are met.
+	   * Support for multiple data access levels based on consent and sensitivity
+   * Rich metadata and documentation to support reuse, AI development, and reproducibility
+   * User-friendly interfaces designed with user feedback
+	Sustainability
+	Sustain services and preserve data holdings for the long term.
+	   * Secured NIH funding through 2029 to support core development and operations
+   * Long-term sustainability planning through federal and non-federal funding sources, including cloud support
+   * Community-driven open-source development to support ongoing maintenance and evolution
+	Technology
+	Provide infrastructure and capabilities to support secure, persistent, and reliable services.
+	   * Modern, containerized architecture supporting scalability and maintainability
+   * Use of open standards (e.g., DICOM, OMOP, CDS) and interoperable APIs
+   * Secure data storage and access controls aligned with data sensitivity
+   * Dedicated services for search, AI-assisted discovery, and programmatic access
+	
+
+Data Standards
+To our knowledge, there are currently no widely adopted, community-approved standards for structuring eye imaging data and associated metadata in manners that fully aligns with the FAIR principles. To address this gap, the Envision Portal will build upon the data standards development already underway through the AI-READI project, one of the Data Generation Project of the NIH Bridge2AI program, where multiple eye imaging modalities are being collected, curated, and standardized.18 These existing efforts from AI-READI and Bridge2AI provide a strong foundation for ensuring that datasets shared through the Envision Portal are well-organized, interoperable, and ready for reuse.
+
+
+Specifically, all datasets shared through the Envision Portal will be organized following the Clinical Dataset Structure (CDS), a specification for organizing multi-modal data and related metadata in a consistent and reusable format (Fig. 7).25 The CDS provides clear conventions for directory layout, file organization, metadata documentation, and provenance tracking. All eye imaging datasets will be formatted in DICOM (Digital Imaging and Communications in Medicine), which is becoming a popularly supported standard to overcome constraints from proprietary and non-standardized formats.26 The OMOP Common Data Model (CDM) is a widely adopted community data standard designed to standardize the structure and content of observational data.27 Clinical data that may be shared with eye images (e.g., demographics data, diagnostic labels) will be structured following the OMOP CDM and shared as CSV tables. 
+
+
+We will actively monitor the landscape of ophthalmic, clinical, and FAIR data standards. As community-endorsed specifications emerge and evolve, we will update our guidance, tooling, and validation workflows to ensure continued alignment.
+  
+
+
+
+Figure 7. Illustration of what a dataset shared on the Envision Portal will look like. The high-level structure and metadata files will follow the CDS, where at the root level, there will be one folder per datatype and multiple metadata files. The clinical data folder will have OMOP-formatted CSV files. The eye imaging data type folders will be organized into multiple folder levels each (one folder per modality, then one folder per device, and finally one folder per participant), and the data files will be in DICOM format.
+
+
+Technical Approaches
+The Envision Portal is being developed using open source and/or free tools when possible to ensure a low cost for development and maintenance. Popular and commonly used frameworks are preferred to facilitate external contributions. Specifically, we are developing the Envision Portal using Nuxt 4 and Vue 3 with an integrated Nitro server for backend operations, containerized using Docker, and deployed on a standalone virtual machine.28–31 Azure will be used for cloud services, given Microsoft’s support for this project (see “Sustainability and Funding Model” section).32 All our web services will be deployed in Microsoft Azure virtual machines with a simple, scalable configuration. All uploaded data will be stored on Microsoft Azure Data Lake instances. A dedicated Python service will handle AI and bioinformatics tasks. We will use GitHub Actions to handle app deployment workflows with Kamal.33,34 Any tasks that require running background tasks will be handled via dedicated instances of long-running Python apps that will interface with any required Azure services. We plan to rely initially on the Microsoft Storage Explorer (MSE) for data upload and download. If it is not deemed convenient enough by users, we will consider developing a dedicated desktop application for data upload and download. It would be built with Tauri and Vue 3 for the frontend and Rust for the backend to offer user-friendly upload and download functionalities in a lightweight, cross-platform environment.35
+We will only use open source tools that are compatible with our license for the source code (MIT License) for building the platform and integrated tools. Existing tools and libraries will be used and extended if necessary. To standardize data and metadata following the CDS, we will use the pyfairdatatools Python package we are developing as part of our AI-READI project.36 We will also use and adapt some of the pipelines developed for the FAIRhub platform in the same project to help users publish FAIR-aligned datasets with a DOI and with schema.org-aligned schema for findability. The search functionality on the front end of the Envision Portal will be handled by Meilisearch (their Community Edition is open source under the MIT license).37 It will allow the creation of indexes on our data that can be used to enable text search and facilitate data discovery. The smart search feature will be built using an open-source LLM like Llama 3. The pipeline to find eye imaging datasets shared on other repositories and index them in the Envision Portal database will also be built using a similar open-source LLM (Fig. 8).
+
+
+  
+
+
+
+Figure 8. Illustration of the envisioned pipeline to find and register eye imaging datasets from different repositories in the Envision Portal to provide a one-stop solution for data discovery.
+
+
+Roadmap
+The development of the Envision Portal will follow a structured, multi-year plan, beginning with foundational design and documentation and progressing toward a fully operational, community-driven platform for sharing, accessing, and reusing ophthalmic imaging data (Fig. 9).
+
+
+
+
+  
+
+
+
+Figure 9. High-level overview of the roadmap of the Envision Portal.
+
+
+
+
+During the first year of the project (2024-2025), we established detailed documentation of the technical architecture of the Envision Portal and the user workflow to agree internally on the major design decisions. We also investigated and agreed on the data standards that will be followed for data shared through the Envision Portal to make them FAIR and AI-ready (see “Data Standards” section). Finally, we developed the initial wireframes and also started developing the base code of the platform. 
+
+
+In year 2 (2025-2026), we will focus on the data access side of the Envision Portal. We plan to manually standardize a new dataset as well as build all the services for sharing it (data storage, DOI minting, dataset landing page generation, data access process, etc.). We will also manually index about 10 external datasets from other repositories in the Envision Portal database. We expect to launch the Envision Portal so users can start accessing the new dataset as well as discover the indexed external datasets. We will set up the developer and user documentation that will be updated and maintained continuously during subsequent years. We will also begin community outreach with initial promotion through conferences and webinars.
+
+
+In year 3 (2026-2027), we will implement key user-facing components for uploading, managing, standardizing, and sharing a dataset through the Envision Portal. We will start developing automated tools. These will include data standardization tools, tools to detect and remove personal health information (PHI), and dataset versioning. We will also develop the pipeline for automatically detecting and indexing eye imaging datasets from other repositories. We will start defining approaches for federated learning in collaboration with the AD Data Initiative (ADDI). If needed, we will develop the desktop app for data upload and download.
+
+
+In year 4 (2027-2028), we will continue developing data standardization tools. We will focus on implementing advanced data access features, such as requests for controlled data. We will build an advanced data search feature, a robust API for integration with AI/ML pipelines, and visualization tools for common file types such as CSV, XLSX, DICOM, BMP, and image formats, so they can be previewed on the platform before download. Initial federated learning features will be developed. We expect datasets outside of our team to be shared through the platform, and many more external datasets to be indexed. 
+
+
+In year 5 (2028-2029), we will focus on scaling, automation, and sustainability. Federated learning features will be completed. We will conduct a full security validation to prepare for large-scale independent data submission and sharing. We will also establish guidelines to support community-driven code contributions and extension of the platform. We will pursue outreach efforts for wide adoption and formal recognition of the Envision Portal as a trusted domain repository. We will execute our sustainability plan to continue developing and maintaining the Envision Portal post-current funding.
+Expected Impact
+We expect the Envision Portal to transform how eye imaging data is shared, discovered, and reused. By lowering barriers to data sharing through intuitive tools, we expect the platform to enable all researchers to make their data available while respecting participant consent and data sensitivity. We believe that providing clear dataset impact usage metrics (e.g., citations, downloads, views) will also encourage researchers to share their datasets in a timely manner. At the same time, we believe that the advanced discovery features of the Envision Portal will accelerate the process of finding relevant datasets, enabling data-driven developments that would otherwise not be possible. We expect this dual emphasis on seamless sharing and efficient discovery to enhance reproducibility, reduce duplication of effort, and stimulate innovation in ophthalmic research and beyond. We will track the impact of the Envision Portal through several metrics related to usage data sharing (such as the number of datasets shared over time, number of contributors, average FAIR score of the datasets) and data reuse (number of views, downloads, citations, API calls, unique users requesting access). All these metrics will be publicly displayed on an “Impact” page of the platform.
+Sustainability and Funding Model
+The Envision Portal is being developed as part of the Eye ACT project funded by NIH through 2029 (NIH grant R01AG060942). In addition, the project has received $100,000 in Azure cloud credits from the Microsoft AI for Good Lab. These fundings will allow us to develop the Envision Portal, support early adopters, and iterate on platform features during the initial years.
+Looking beyond 2029, we will explore several complementary approaches to sustain the Envision Portal and ensure its growth, accessibility, and long-term impact. Our strategy is modeled after successful, long-running biomedical data repositories such as OpenNeuro, which have achieved sustainability through a combination of federal grants, philanthropic support, and strong community participation.
+
+
+We will continue developing partnerships with organizations whose missions align with open science and responsible data sharing. This includes collaboration with the AD Data Initiative and the Integrated Data Health Evaluation and Analytics (IDHEA) network, for instance, to support federated learning. In addition, we will pursue sustained cloud infrastructure support through programs such as the Microsoft AI for Good Lab and AWS Open Data Sponsorships to keep the datasets hosting and downloads free.
+
+
+A key component of long-term sustainability will be cultivating an active, engaged contributor community. Because the Envision Portal is fully open source and developed transparently on a public GitHub repository, developers, researchers, and partner institutions will be able to contribute directly to the platform’s evolution. Community members may support the project by submitting bug reports, proposing enhancements, addressing open issues, developing new features, improving documentation, or contributing domain-specific expertise. This open development ecosystem, similar to the community engagement model used by OpenNeuro, will ensure rapid iteration, distributed innovation, and shared ownership of the platform’s long-term success.
+Following the initial NIH funding period, we will pursue both federal and non-federal funding sources to ensure ongoing platform development and sustainability. Federal avenues may include continued NIH support. In parallel, we will pursue non-federal support from philanthropic and mission-aligned organizations such as the Chan Zuckerberg Initiative (CZI), Gates Foundation, the Navigation Fund, and disease-focused foundations in ophthalmology, neurology, and aging. These organizations can provide vital resources for running automated tools, hosting datasets, maintaining infrastructure, and community building, and our team is already collaborating with many of them through different projects.
+By combining strategic partnerships, open-source community contributions, and a diversified portfolio of federal and non-federal funding sources, the Envision Portal aims to remain a trusted, FAIR-aligned, and innovative platform for the global ophthalmic research community long after the initial NIH funding period.
+Call to Action
+The Envision Portal is an effort to transform how ophthalmic imaging data are shared, discovered, and reused across the research ecosystem. As we continue building this open, FAIR-aligned, community-driven platform, we invite researchers, clinicians, data contributors, developers, institutions, and funders to join us in shaping its future. Your participation, whether through sharing datasets, contributing code, offering feedback, or partnering on new capabilities, will ensure that the Envision Portal becomes a trusted and sustainable resource that accelerates innovation in ophthalmology and beyond. Together, we can build an open infrastructure that empowers discovery, advances AI readiness, and ultimately improves health for communities worldwide.
+________________
+References
+1.        Wang, Z. et al. Artificial Intelligence and Deep Learning in Ophthalmology. Artificial Intelligence in Medicine 1519–1552 (2022).
+2.        (Patoni), S. I. P. et al. Artificial intelligence in ophthalmology. Romanian Journal of Ophthalmology 67, 207 (2023).
+3.        Zhou, Y. et al. A foundation model for generalizable disease detection from retinal images. Nature 622, 156–163 (2023).
+4.        OphGLM: An ophthalmology large language-and-vision assistant. Artificial Intelligence in Medicine 157, 103001 (2024).
+5.        Zhao, H. et al. Ophtha-LLaMA2: A Large Language Model for Ophthalmology. (2023).
+6.        Tan, Y. Y. et al. Prognostic potentials of AI in ophthalmology: systemic disease forecasting via retinal imaging. Eye and Vision 11, 1–18 (2024).
+7.        Gim, N. et al. Publicly available imaging datasets for age-related macular degeneration: Evaluation according to the Findable, Accessible, Interoperable, Reusable (FAIR) principles. Exp. Eye Res. 255, 110342 (2025).
+8.        Gorgolewski, K. J. et al. The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments. Sci. Data 3, 160044 (2016).
+9.        BIDS Tools. https://bids.neuroimaging.io/tools/index.html.
+10.        OpenNeuro. https://openneuro.org/.
+11.        Markiewicz, C. J. et al. The OpenNeuro resource for sharing of neuroscience data. Elife 10, (2021).
+12.        Repositories for Sharing Scientific Data. https://sharing.nih.gov/data-management-and-sharing-policy/sharing-scientific-data/repositories-for-sharing-scientific-data.
+13.        The MEGco Data set. https://neidatacommons.nei.nih.gov/perception-cognition-and-action/decodingColorWithMeg/MEGco.
+14.        Lee, C. S. et al. Eye Adult Changes in Thought (Eye ACT) study: Design and report on the inaugural cohort. J. Alzheimers. Dis. 100, 309–320 (2024).
+15.        Wilkinson, M. D. et al. The FAIR Guiding Principles for scientific data management and stewardship. Sci Data 3, 160018 (2016).
+16.        Clark, T. et al. AI-readiness for biomedical data: Bridge2AI recommendations. bioRxivorg (2024) doi:10.1101/2024.10.23.619844.
+17.        Marroquin, C. et al. SODA: Software to support the curation and sharing of FAIR autonomic nervous system data. J. Open Source Softw. 9, 6140 (2024).
+18.        AI-READI Consortium. AI-READI: rethinking AI data collection, preparation and sharing in diabetes research and beyond. Nat. Metab. 6, 2210–2212 (2024).
+19.        Lin, D. et al. The TRUST Principles for digital repositories. Sci. Data 7, 144 (2020).
+20.        CoreTrustSeal. CoreTrustSeal https://www.coretrustseal.org.
+21.        Dillo, I. & De Leeuw, L. CoreTrustSeal. Mitt. Ver. Österr. Bibl. Bibl. 71, 162–170 (2018).
+22.        Barker, M. et al. Introducing the FAIR Principles for research software. Sci Data 9, 622 (2022).
+23.        Patel, B., Soundarajan, S., Ménager, H. & Hu, Z. Making Biomedical Research Software FAIR: Actionable step-by-step guidelines with a user-support tool. Sci. Data 10, 557 (2023).
+24.        EyeACT. (Github).
+25.        Introduction to the CDS. https://cds-specification.readthedocs.io.
+26.        Gim, N., Ferguson, A. N., Blazes, M., Lee, C. S. & Lee, A. Y. The march to harmonized imaging standards for retinal imaging. Prog. Retin. Eye Res. 107, 101363 (2025).
+27.        Data Standardization – OHDSI. https://www.ohdsi.org/data-standardization/.
+28.        Merkel, D. Docker: lightweight Linux containers for consistent development and deployment. Linux Journal 2014, 2 (2014).
+29.        Nuxt: The Progressive Web Framework. Nuxt https://nuxt.com.
+30.        Vue.js. https://vuejs.org.
+31.        Nitro - Next Generation Server Toolkit. https://nitro.build.
+32.        Cloud Computing Services. https://azure.microsoft.com.
+33.        GitHub Actions. (Github).
+34.        Deploy web apps anywhere. Kamal https://kamal-deploy.org/.
+35.        Tauri 2.0. Tauri https://v2.tauri.app.
+36.        Pyfairdatatools: Python Library to Help with Making Data FAIR. (Github).
+37.        Meilisearch: Unified Search & AI Retrieval Platform. https://www.meilisearch.com.
+
+
+
+
+
+
+[a]@bpatel@calmi2.org 
+what about deidentification process? are the data contributors responsible for that or can Envision Portal do that?
+_Assigned to bpatel@calmi2.org_
+[b]It will be a mix of both. We would primarily expect users to deindentify data before upload. For added security, we will check for PHI in text.(filename, metadata, etc.) using existing open source tools like https://github.com/BCHSI/philter-ucsf and warn the users if we detect any. If you know tools to check eye imaging files, we could integrate them as well. Let me know!

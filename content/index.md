@@ -9,7 +9,7 @@ seo:
 Envision Portal Documentation
 
 #description
-Manage, publish, and discover biomedical research datasets with FAIR principles, controlled access workflows, and clinical trial metadata support.
+Share, discover, and reuse FAIR and AI-ready eye imaging datasets with standardized metadata, flexible access controls, and programmatic integration paths.
 
 #links
   :::u-button
@@ -33,10 +33,10 @@ Platform Capabilities
   icon: i-lucide-database
   ---
   #title
-  Dataset Management
+  FAIR and AI-Ready Data Sharing
 
   #description
-  Create and manage versioned research datasets with comprehensive metadata, file storage, and a structured publishing workflow.
+  Prepare and publish datasets with guided workflows, versioning, and support for eye imaging and related clinical data.
   :::
 
   :::u-page-feature
@@ -44,10 +44,10 @@ Platform Capabilities
   icon: i-lucide-file-text
   ---
   #title
-  Rich Metadata
+  Standards-Based Metadata
 
   #description
-  Capture general dataset metadata, clinical trial study information, and data quality documentation through the Healthsheet framework.
+  Document datasets using CDS-aligned structure, DICOM imaging guidance, OMOP-ready clinical tables, and Healthsheet quality context.
   :::
 
   :::u-page-feature
@@ -55,10 +55,10 @@ Platform Capabilities
   icon: i-lucide-lock
   ---
   #title
-  Access Control
+  Responsible Access Control
 
   #description
-  Role-based team permissions and a full controlled access request workflow with data use agreements and expiration management.
+  Apply public and controlled access workflows with request review, data use agreements, and policy-driven governance.
   :::
 
   :::u-page-feature
@@ -66,10 +66,10 @@ Platform Capabilities
   icon: i-lucide-search
   ---
   #title
-  Dataset Discovery
+  Discovery and Registry
 
   #description
-  Browse and search publicly available datasets. Request access to open or controlled datasets directly from the platform.
+  Discover hosted datasets and indexed external datasets by modality, disease focus, device, access type, and metadata quality.
   :::
 
   :::u-page-feature
@@ -77,10 +77,10 @@ Platform Capabilities
   icon: i-lucide-upload-cloud
   ---
   #title
-  Cloud File Storage
+  Cloud-Native Storage
 
   #description
-  Upload dataset files to Azure Data Lake Storage with separate environments for drafts and published datasets.
+  Store draft and published data in Azure Data Lake-backed storage designed for scalable upload, access, and lifecycle workflows.
   :::
 
   :::u-page-feature
@@ -88,9 +88,17 @@ Platform Capabilities
   icon: i-lucide-code-2
   ---
   #title
-  REST API
+  API and AI Integration
 
   #description
-  Full REST API with OpenAPI documentation. Integrate dataset management workflows into your own tools and pipelines.
+  Connect through REST APIs for automated ingestion, discovery, and reuse in analytics and AI/ML pipelines.
   :::
+::
+
+::u-page-section
+#title
+Supported Modalities
+
+#description
+Envision Portal prioritizes ophthalmic imaging modalities commonly used in clinical and translational research, including OCT, OCTA, fundus photography, and FLIO, alongside related clinical metadata.
 ::
